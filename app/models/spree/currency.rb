@@ -129,7 +129,7 @@ module Spree
       # Usage: Currency.conversion_from_current(100, :locale => "da")
       def conversion_from_current(value, options = {})
         load_rate(options)
-        convert(parse_price(value), @current.char_code, @basic.char_code)
+        convert(value, @current.char_code, @basic.char_code)
       rescue => ex
         error_logger(ex)
         value
