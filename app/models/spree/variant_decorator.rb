@@ -55,6 +55,7 @@ Spree::Variant.class_eval do
     unless new_record?
       cur = current_char_code
       base_price = prices.where(currency: cur).first
+      changed_attributes[:price] = price
       if base_price
         base_price.amount = value
       else
